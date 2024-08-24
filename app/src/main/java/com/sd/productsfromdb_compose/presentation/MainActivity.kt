@@ -1,4 +1,4 @@
-package com.sd.productsfromdb_compose
+package com.sd.productsfromdb_compose.presentation
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -11,7 +11,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.sd.productsfromdb_compose.ui.theme.ProductsFromDB_composeTheme
+import com.sd.productsfromdb_compose.presentation.ui.theme.ProductsFromDB_composeTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
