@@ -6,7 +6,7 @@ import com.sd.productsfromdb_compose.domain.model.ProductModel
 
 class Mapper {
 
-    fun toEntity(productModel: ProductModel):ProductEntity {
+    fun toEntity(productModel: ProductModel): ProductEntity {
         return ProductEntity(
             id = productModel.id,
             name = productModel.name,
@@ -16,7 +16,7 @@ class Mapper {
         )
     }
 
-    fun toModel(productEntity: ProductEntity):ProductModel {
+    fun toModel(productEntity: ProductEntity): ProductModel {
         return ProductModel(
             id = productEntity.id,
             name = productEntity.name,

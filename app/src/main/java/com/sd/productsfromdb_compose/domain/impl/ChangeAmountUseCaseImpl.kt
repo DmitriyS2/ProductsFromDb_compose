@@ -7,7 +7,7 @@ import javax.inject.Inject
 
 class ChangeAmountUseCaseImpl @Inject constructor(
     private val repository: ProductRepository
-): ChangeAmountUseCase {
+) : ChangeAmountUseCase {
 
     override suspend operator fun invoke(productModel: ProductModel) {
         repository.changeAmount(productModel)

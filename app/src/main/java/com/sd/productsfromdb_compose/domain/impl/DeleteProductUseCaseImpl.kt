@@ -6,9 +6,9 @@ import javax.inject.Inject
 
 class DeleteProductUseCaseImpl @Inject constructor(
     private val repository: ProductRepository
-):DeleteProductUseCase {
+) : DeleteProductUseCase {
 
-    override suspend operator fun invoke(id:Int) {
+    override suspend operator fun invoke(id: Int) {
         repository.deleteProduct(id)
     }
 }

@@ -7,9 +7,9 @@ import javax.inject.Inject
 
 class GetAllProductsUseCaseImpl @Inject constructor(
     private val repository: ProductRepository
-):GetAllProductsUseCase {
+) : GetAllProductsUseCase {
 
-    override suspend operator fun invoke():List<ProductModel> {
+    override suspend operator fun invoke(): List<ProductModel> {
         return repository.getAllProducts()
     }
 }

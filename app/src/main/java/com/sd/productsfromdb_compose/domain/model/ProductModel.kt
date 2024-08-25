@@ -4,8 +4,8 @@ import java.util.Date
 
 data class ProductModel(
     val id: Int = 0,
-    val name: String = "",
+    val name: String = "Name",
     val time: Date = Date(),
-    val tags: List<String> = emptyList(),
-    val amount: Int = 0,
+    val tags: List<String> = listOf("First", "Second", "Third"),
+    val amount: Int = 1,
 )

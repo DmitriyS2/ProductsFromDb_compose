@@ -19,7 +19,7 @@ object DbModule {
     @Provides
     @Singleton
     fun provideDb(@ApplicationContext context: Context): AppDb {
-        return Room.databaseBuilder(context, AppDb::class.java, "data.db")
+        return Room.databaseBuilder(context, AppDb::class.java, NAME_DB)
             .fallbackToDestructiveMigration()
             .addCallback(object : RoomDatabase.Callback() {
                 override fun onOpen(db: SupportSQLiteDatabase) {
@@ -27,7 +27,7 @@ object DbModule {
                     db.disableWriteAheadLogging()
                 }
             })
-            .createFromAsset("data.db")
+            .createFromAsset(NAME_DB)
             .build()
     }
 
@@ -36,4 +36,6 @@ object DbModule {
     fun provideNumberDao(
         appDb: AppDb
     ): ProductDao = appDb.productDao()
+
+    private const val NAME_DB = "data.db"
 }

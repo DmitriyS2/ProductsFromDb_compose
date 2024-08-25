@@ -1,6 +1,6 @@
 package com.sd.productsfromdb_compose.presentation.viewmodel
 
-import android.util.Log
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -18,34 +18,53 @@ class MainViewModel @Inject constructor(
     private val getAllProductsUseCase: GetAllProductsUseCase,
     private val changeAmountUseCase: ChangeAmountUseCase,
     private val deleteProductUseCase: DeleteProductUseCase,
-):ViewModel() {
+) : ViewModel() {
 
-    val data = MutableLiveData<List<ProductModel>>()
+    private val _data = MutableLiveData<List<ProductModel>>()
+    val data: LiveData<List<ProductModel>>
+        get() = _data
+
+    private val _currentProduct = MutableLiveData<ProductModel?>()
+    val currentProduct: LiveData<ProductModel?>
+        get() = _currentProduct
 
     init {
-       loadData()
+        loadData()
     }
 
-    fun loadData() {
+    private fun loadData() {
         viewModelScope.launch(Dispatchers.IO) {
             try {
-                data.postValue(getAllProductsUseCase())
-                Log.d("MyLog", "temp = ${data.value}")
-            } catch (e:Exception) {
+                _data.postValue(getAllProductsUseCase())
+            } catch (e: Exception) {
                 e.printStackTrace()
             }
         }
     }
 
+    fun setCurrentProduct(productModel: ProductModel?) {
+        _currentProduct.value = productModel
+    }
+
     fun changeAmount(productModel: ProductModel) {
         viewModelScope.launch {
-            changeAmountUseCase(productModel)
+            try {
+                changeAmountUseCase(productModel)
+                loadData()
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
         }
     }
 
-    fun deleteProduct(id:Int) {
+    fun deleteProduct(id: Int) {
         viewModelScope.launch {
-            deleteProductUseCase(id)
+            try {
+                deleteProductUseCase(id)
+                loadData()
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
         }
     }
 }
