@@ -27,7 +27,7 @@ class MainActivity : ComponentActivity() {
                 val vm: MainViewModel = viewModel()
                 val mapper = Mapper()
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    val n by vm.temp.observeAsState()
+                    val n by vm.data.observeAsState()
                     Text(
                         text = "vm.temp = $n",
                         modifier = Modifier.padding(innerPadding)
