@@ -11,6 +11,10 @@ composeBom = "2024.04.01"
 roomKtx = "2.6.1"
 hilt = "2.51.1"
 kspVersion = "2.0.0-1.0.21"
+desugar_jdk_libs = "2.0.4"
+lifecycleVersion = "2.8.4"
+composeRuntimeVersion = "1.6.8"
+serializationVersion = "1.6.3"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -27,6 +31,8 @@ androidx-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-toolin
 androidx-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
 androidx-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
 androidx-material3 = { group = "androidx.compose.material3", name = "material3" }
+desugar_jdk_libs = { module = "com.android.tools:desugar_jdk_libs", version.ref = "desugar_jdk_libs" }
+
 
 # Room
 androidx-room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "roomKtx" }
@@ -36,6 +42,13 @@ androidx-room-annotation-processor = {group = "androidx.room", name = "room-comp
 hilt-compiler = { group = "com.google.dagger", name = "hilt-compiler", version.ref = "hilt" }
 hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hilt" }
 hilt-android-gradle-plugin = { module = "com.google.dagger:hilt-android-gradle-plugin", version.ref = "hilt" }
+
+#ViewModel
+androidx-lifecycle = {group = "androidx.lifecycle", name = "lifecycle-viewmodel-compose", version.ref = "lifecycleVersion"}
+androidx-compose = {group = "androidx.compose.runtime", name = "runtime-livedata", version.ref = "composeRuntimeVersion"}
+
+# Kotlin serialization
+serialization = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "serializationVersion" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

@@ -35,6 +35,7 @@ android {
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
+        isCoreLibraryDesugaringEnabled = true
     }
     kotlinOptions {
         jvmTarget = "1.8"
@@ -61,6 +62,16 @@ dependencies {
     // Dagger Hilt
     implementation(libs.hilt.android)
     ksp(libs.hilt.compiler)
+
+    // dependencies for Java 8+ API desugaring support (for the new language APIs)
+    coreLibraryDesugaring(libs.desugar.jdk.libs)
+
+    // viewmodel
+    implementation(libs.androidx.lifecycle)
+    implementation(libs.androidx.compose)
+
+    // Kotlin serialization
+    implementation(libs.serialization)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
