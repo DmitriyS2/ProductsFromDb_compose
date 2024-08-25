@@ -1,5 +1,6 @@
 package com.sd.productsfromdb_compose.data.db
 
+import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
@@ -10,7 +11,7 @@ interface ProductDao {
 
     //дать products из БД
     @Query("SELECT * FROM item")
-    fun getAllProducts(): List<ProductEntity>
+    fun getAllProducts(): LiveData<List<ProductEntity>>
 
     // вставить/поменять product в БД
     @Insert(onConflict = OnConflictStrategy.REPLACE)

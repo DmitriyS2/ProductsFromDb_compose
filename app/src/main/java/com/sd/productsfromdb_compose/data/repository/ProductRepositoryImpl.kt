@@ -1,5 +1,7 @@
 package com.sd.productsfromdb_compose.data.repository
 
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.map
 import com.sd.productsfromdb_compose.data.db.ProductDao
 import com.sd.productsfromdb_compose.data.mapper.Mapper
 import com.sd.productsfromdb_compose.domain.model.ProductModel
@@ -12,8 +14,12 @@ class ProductRepositoryImpl @Inject constructor(
 
     private val mapper = Mapper()
 
-    override suspend fun getAllProducts() = productDao.getAllProducts().map {
-        mapper.toModel(it)
+    override fun getAllProducts(): LiveData<List<ProductModel>> {
+        return productDao.getAllProducts().map { listEntity ->
+            listEntity.map { entity ->
+                mapper.toModel(entity)
+            }
+        }
     }
 
     override suspend fun changeAmount(productModel: ProductModel) {
