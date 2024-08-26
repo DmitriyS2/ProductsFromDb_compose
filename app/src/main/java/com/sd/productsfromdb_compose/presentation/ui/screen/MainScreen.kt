@@ -114,6 +114,9 @@ fun MainScreen(
                 onClickApprove = {
                     vm.deleteProduct(product.id)
                     showDialogDeleteProduct.value = false
+                },
+                onClickCancel = {
+                    showDialogDeleteProduct.value = false
                 }
             )
         }
