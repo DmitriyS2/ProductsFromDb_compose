@@ -16,6 +16,8 @@
 
 • Удаление карточки товара из БД
 
+• Добавление карточки товара в БД
+
 • Теги товара оформлены в виде чипсов (Chips)
 
 Стек: Kotlin 2.0, MVVM, Clean Architecture, Jetpack Compose, Room, Hilt, Kotlin serialization
