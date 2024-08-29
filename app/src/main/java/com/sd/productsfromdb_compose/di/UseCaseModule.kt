@@ -1,8 +1,10 @@
 package com.sd.productsfromdb_compose.di
 
+import com.sd.productsfromdb_compose.domain.api.AddNewProductUseCase
 import com.sd.productsfromdb_compose.domain.api.ChangeAmountUseCase
 import com.sd.productsfromdb_compose.domain.api.DeleteProductUseCase
 import com.sd.productsfromdb_compose.domain.api.GetAllProductsUseCase
+import com.sd.productsfromdb_compose.domain.impl.AddNewProductUseCaseImpl
 import com.sd.productsfromdb_compose.domain.impl.ChangeAmountUseCaseImpl
 import com.sd.productsfromdb_compose.domain.impl.DeleteProductUseCaseImpl
 import com.sd.productsfromdb_compose.domain.impl.GetAllProductsUseCaseImpl
@@ -23,4 +25,7 @@ interface UseCaseModule {
 
     @Binds
     fun bindDeleteProductUseCase(impl: DeleteProductUseCaseImpl): DeleteProductUseCase
+
+    @Binds
+    fun bindAddNewProductUseCase(impl: AddNewProductUseCaseImpl): AddNewProductUseCase
 }

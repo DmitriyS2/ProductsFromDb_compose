@@ -18,4 +18,12 @@
     <string name="iconminus">iconMinus</string>
     <string name="quantity_products">Количество товара</string>
     <string name="iconwarning">iconWarning</string>
+    <string name="list_products">Список товаров</string>
+    <string name="add">Добавить</string>
+    <string name="iconadd">iconAdd</string>
+    <string name="add_new_product">Добавить новый товар</string>
+    <string name="title">Наименование</string>
+    <string name="tags">Теги (через запятую)</string>
+    <string name="stock_warehouse">Остаток на складе</string>
+    <string name="wrong">Неверное значение</string>
 </resources>

@@ -7,7 +7,7 @@ import java.util.Date
 
 @Entity(tableName = "item")
 data class ProductEntity(
-    @PrimaryKey(autoGenerate = false)
+    @PrimaryKey(autoGenerate = true)
     val id: Int,
     @ColumnInfo(name = "name")
     val name: String,
