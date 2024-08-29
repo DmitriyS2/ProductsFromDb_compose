@@ -18,3 +18,5 @@
 
 • Теги товара оформлены в виде чипсов (Chips)
 
+Стек: Kotlin 2.0, MVVM, Clean Architecture, Jetpack Compose, Room, Hilt, Kotlin serialization
+
